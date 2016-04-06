@@ -19,3 +19,34 @@ Forth is
   compact
   transportable
   productive
+
+1. Fundamental Forth
+
+( Large letter F )
+ : STAR 42 EMIT ;
+ : STARS   0 DO  STAR  LOOP ;
+ : MARGIN  CR 30 SPACES ;
+ : BLIP MARGIN STAR ;
+ : BAR  MARGIN 5 STARS ;
+ : F    BAR BLIP BAR BLIP BLIP CR ;
+
+ Word name consists any character except
+   return
+   backspace
+   space
+
+Review of Terms
+  Compile
+  Dictionary
+  Execuate
+  Extensibility
+  Glossary
+  Infix notation
+  Input stream
+  Interpret
+  LIFO
+  Postfix notation
+  Stack
+  Stack overflow
+  Stack underflow
+  Word
