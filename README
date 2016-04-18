@@ -92,3 +92,31 @@ Double
 Review of Terms
   Double-length numbers
   Single-length numbers
+
+Chapter 3 The Editor (and Staff)
+
+You can define the same word more than once in different ways — only the most recent definition will be executed.
+
+USE xxx          ( -- ) Designate OS text file xxx as the "Forth disk."
+LIST             ( n -- ) Lists a disk block.
+LOAD             ( n -- ) Loads a disk block (compiles or executes).
+( xxx)           ( -- ) Causes the string xxx to be ignored by the text interpreter. The character ) is the delimiter.
+UPDATE           ( -- ) Marks the most recently referenced block as modified. The block will later be automatically transferred
+                        to mass storage if its buffer is needed to store a different block or if FLUSH is executed.
+EMPTY-BUFFERS    ( -- ) Marks all block buffers as empty without necessarily affecting their actual contents.
+                        Updated blocks are not written to mass storage.
+BLOCK            ( u -- addr ) Leaves the address of the first byte in block u. If the block is not already in memory,
+                               it is transferred from mass storage into whichever memory buffer has been least recently accessed.
+                               If the block occupying that buffer has been updated (i.e., modified), it is rewritten onto
+                               mass storage before block u is read into the buffer.
+INCLUDE xxx      ( -- ) Load the text file xxx (compiles or executes).
+FORGET xxx       ( -- ) Forgets all definitions back to and including xxx.
+MARKER xxx       ( -- ) Creates a word xxx which, when executed, restores the dictionary to the state it had just prior to
+                        the definition of xxx. In particular, remove xxx and all subsequent word definitions.
+
+Review of Terms
+  Block
+  Buffer
+  Null definition
+  Pointer
+  Source text
