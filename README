@@ -1,7 +1,7 @@
 Starting Forth
 Leo Brodie
 
-0. Introductions
+Chapter 0 Introductions
 
 human -> machine
 puppeteer -> wooden control -> strings -> marionette
@@ -20,7 +20,7 @@ Forth is
   transportable
   productive
 
-1. Fundamental Forth
+Chapter 1 Fundamental Forth
 
 ( Large letter F )
  : STAR 42 EMIT ;
@@ -30,10 +30,19 @@ Forth is
  : BAR  MARGIN 5 STARS ;
  : F    BAR BLIP BAR BLIP BLIP CR ;
 
- Word name consists any character except
+Word name consists any character except
    return
    backspace
    space
+
+: xxxx yyy ; ( -- )           Creates a new definition with the name xxx, consisting of word or words yyy.
+CR           ( -- )           Performs a carriage return and line feed at your terminal.
+SPACES       ( n -- )         Prints the given number of blank spaces at your terminal.
+SPACE        ( -- )           Prints one blank space at your terminal.
+EMIT         ( c -- )         Transmits a character to the output device.
+." xxx"      ( -- )           Prints the character string xxx at your terminal. The " character terminates the string.
++            ( n1 n2 -- sum ) Adds.
+.            ( n -- )         Prints a number, followed by one space.
 
 Review of Terms
   Compile
@@ -50,3 +59,36 @@ Review of Terms
   Stack overflow
   Stack underflow
   Word
+
+Chapter 2 How to Get Results
+
+Integer-arithmetic operators
+  + ( n1 n2 -- sum )  Adds.
+  - ( n1 n2 -- diff ) Subtracts (n1-n2).
+  * ( n1 n2 -- prod ) Multiplies.
+  / ( n1 n2 -- quot ) Divides (n1/n2).
+
+To convert to postfix, simply move the operator to the end of the expression.
+
+Division operators
+  /MOD ( n1 n2 -- rem quot ) Divides. Returns the remainder and quotient.
+  MOD ( n1 n2 -- rem ) Returns the remainder from division.
+
+Stack manipulation operators
+  SWAP ( n1 n2 -- n2 n1 ) Reverses the top two stack items.
+  DUP  ( n -- n n ) Duplicates the top stack item.
+  OVER ( n1 n2 -- n1 n2 n1 ) Makes a copy of the second item and pushes it on top.
+  ROT  ( n1 n2 n3 -- n2 n3 n1 ) Rotates the third item to the top.
+  DROP ( n -- ) Discards the top stack item.
+
+When writing equations in Forth, it's best to "factor them out" first.
+
+Double
+  2SWAP ( d1 d2 -- d2 d1 ) Reverses the top two pairs of numbers.
+  2DUP  ( d -- d d ) Duplicates the top pair of numbers.
+  2OVER ( d1 d2 -- d1 d2 d1 ) Makes a copy of the second pair of numbers and pushes it on top.
+  2DROP ( d -- ) Discards the top pair of numbers.
+
+Review of Terms
+  Double-length numbers
+  Single-length numbers
