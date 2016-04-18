@@ -120,3 +120,32 @@ Review of Terms
   Null definition
   Pointer
   Source text
+
+Chapter 4 Decisions, Decisions…
+
+IF   xxx   IF: ( f -- ) If f is true (non-zero) executes xxx; otherwise executes yyy;
+ELSE yyy                continues execution with zzz regardless. The phrase ELSE yyy is optional.
+THEN zzz
+=          ( n1 n2 -- f ) Returns true if n1 and n2 are equal.
+-          ( n1 n2 -- n-diff ) Returns true (i.e., the non-zero difference) if n1 and n2 are not equal.
+<          ( n1 n2 -- f ) Returns true if n1 is less than n2.
+>          ( n1 n2 -- f ) Returns true if n1 is greater than n2.
+0=         ( n -- f ) Returns true if n is zero (i.e., reverse the truth value).
+0<         ( n -- f ) Returns true if n is negative.
+0>         ( n -- f ) Returns true if n is positive.
+AND        ( n1 n2 -- and ) Returns the logical AND.
+OR         ( n1 n2 -- or ) Returns the logical OR.
+?DUP       ( n -- n n ) or ( 0 -- 0 ) Duplicates only if n is non-zero.
+ABORT" xx" ( f -- ) If the flag is true, types out an error message, followed by the text.
+                    Also clears the stacks and returns control to the terminal. If false, takes no action.
+?STACK     ( -- f ) Returns true if a stack underflow condition has occurred.
+
+Review of Terms
+  Abort
+  "And" decision
+  Branching
+  Comparison operator
+  Flag
+  Logic
+  Nesting
+  "Or" decision
