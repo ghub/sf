@@ -1,0 +1,8 @@
+require ex04_6.fs
+
+: TRAP   ( n lo hi -- n or empty )
+    ROT DUP 2SWAP 2DUP = SWAP 2SWAP ROT 1+ WITHIN 0=
+    IF ." NOT BETWEEN" DROP ELSE
+    IF ." YOU GOT IT!" DROP ELSE
+       ." BETWEEN"
+    THEN THEN ;
