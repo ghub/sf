@@ -149,3 +149,52 @@ Review of Terms
   Logic
   Nesting
   "Or" decision
+
+Chapter 5 The Philosophy of Fixed Point
+
+Quickie Operators
+  1+ ( n -- n+1 ) Adds one.
+  1- ( n -- n-1 ) Subtracts one.
+  2+ ( n -- n+2 ) Adds two.
+  2- ( n -- n-2 ) Subtracts two.
+  2* ( n -- n*2 ) Multiplies by two (arithmetic left shift).
+  2/ ( n -- n/2 ) Divides by two (arithmetic right shift).
+
+Miscellaneous Math Operators
+  ABS    ( n -- |n| ) Returns the absolute value.
+  NEGATE ( n -- -n ) Changes the sign.
+  MIN    ( n1 n2 -- n-min ) Returns the minimum.
+  MAX    ( n1 n2 -- n-max ) Returns the maximum.
+
+The Return Stack
+  >R ( n -- ) Takes a value off the parameter stack and pushes it onto the return stack.
+  R> ( -- n ) Takes a value off the return stack and pushes it onto the parameter stack.
+  I  ( -- n ) Copies the top of the return stack without affecting it.
+  R@ ( -- n ) Copies the top of the return stack without affecting it.
+  J  ( -- n ) Copies the third item of the return stack without affecting it.
+
+Scaling operators
+  */    ( n1 n2 n3 -- n-result ) Multiplies, then divides (n1*n2/n3). Uses a double-length intermediate result.
+  */MOD ( n1 n2 n3 -- n-rem n-result ) Multiplies, then divides (n1*n2/n3). Returns the remainder and the quotient.
+                                       Uses a double-length intermediate result.
+
+Rational Approximations to Various Constants
+
+Number                       Approximation           Error
+π = 3.141 ...                355 / 113               8.5 x 10-8
+π = 3.141 ...                1068966896 / 340262731  3.0 x 10-18
+√2 = 1.414 ...               19601 / 13860           1.5 x 10-9
+√3 = 1.732 ...               18817 / 10864           1.1 x 10-9
+e = 2.718 ...                28667 / 10546           5.5 x 10-9
+√10 = 3.162 ...              22936 / 7253            5.7 x 10-9
+12√2 = 1.059 ...             26797 / 25293           1.0 x 10-9
+log(2) / 1.6384 = 0.183 ...  2040 / 11103            1.1 x 10-8
+ln(2) / 16.384 = 0.042 ...   485 / 11464             1.0 x 10-7
+
+Review of Terms
+  Double-length intermediate result
+  Fixed-point arithmetic
+  Floating-point arithmetic
+  Parameter stack
+  Return stack
+  Scaling
