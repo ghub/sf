@@ -198,3 +198,24 @@ Review of Terms
   Parameter stack
   Return stack
   Scaling
+
+Chapter 6 Throw It For a Loop
+
+
+DO ... LOOP      DO: ( limit index -- ) Sets up a finite loop, given the index range.
+                 LOOP: ( -- )
+DO ... +LOOP     DO: ( limit index -- ) Like DO … LOOP except adds the value of n (instead of always one) to the index.
+                 +LOOP: ( -- )
+LEAVE            ( -- ) Terminate the loop immediately.
+BEGIN ... UNTIL  UNTIL: ( f -- ) Sets up an indefinite loop which ends when f is true.
+BEGIN xxx        WHILE: ( f -- ) Sets up an indefinite loop which always executes xxx and also yyy if f is true.
+WHILE yyy                        Ends when f is false.
+REPEAT
+U.R              ( u width -- ) Prints the unsigned single-length number, right-justified within the field width.
+PAGE             ( -- ) Clears the terminal screen and resets the terminal’s cursor to the upper left-hand corner.
+QUIT             ( -- ) Terminates execution for the current task and returns control to the terminal.
+
+Review of Terms
+  definite loop
+  infinite loop
+  indefinite loop
