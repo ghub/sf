@@ -219,3 +219,109 @@ Review of Terms
   definite loop
   infinite loop
   indefinite loop
+
+Chapter 7 A Number of Kinds of Numbers
+
+Shift Operators
+  2*     ( n -- n*2 ) Multiplies by two (arithmetic left shift)
+  2/     ( n -- n/2 ) Divides by two (arithmetic right shift)
+  LSHIFT ( n u -- n*2^u ) Logical left shift over u positions
+  RSHIFT ( n -- n/2^-u ) Logical right shift over u positions
+
+Unsigned Operators
+  U.     ( u -- ) Prints the unsigned single-length number, followed by a space.
+  UM*    ( u1 u2 -- ud ) Multiplies two single-length numbers. Returns a double-length result. All values are unsigned.
+  UM/MOD ( ud u1 -- u2 u3 ) Divides a double-length by a single-length number. Returns a single-length quotient u2 and remainder u3.
+                            All values are unsigned.
+  U<     ( u1 u2 -- f ) Leaves true if u1 < u2, where both are treated as single-length unsigned integers.
+
+Number Bases
+  HEX     ( -- ) Sets the base to sixteen.
+  OCTAL   ( -- ) Sets the base to eight (available on some systems).
+  DECIMAL ( -- ) Returns the base to ten.
+
+D. ( d -- ) Prints the signed double-length number, followed by one space.
+
+: UD.  <# #S #> TYPE ;
+
+Number Formatting Operators
+  <#      Begins the number conversion process. Expects the unsigned double-length number on the stack.
+  #       Converts one digit and puts it into an output character string. # always produces a digit — if you're out of
+          significant digits, you'll still get a zero for every #.
+  #S      Converts the number until the result is zero. Always produces at least one digit (0 if the value is zero).
+  c HOLD  Inserts, at the current position in the character string being formatted, a character c whose ASCII value is on
+          the stack. HOLD (or a word which uses HOLD) must be used between <# and #>.
+  SIGN    Inserts a minus sign in the output string if the top of stack is negative. Usually used with ROT immediately
+          before #> for a leading minus sign.
+  #>      Completes number conversion by leaving the character count and address on the stack
+          (these are the appropriate arguments for TYPE).
+
+Stack effects for number formatting
+  phrase              stack
+  <# ... #>           ( ud -- addr u ) double-length unsigned
+  <# ... ROT SIGN #>  ( n |d| -- addr u ) double-length signed (where n is the high-order cell of d and |d| is the absolute
+                                          value of d).
+
+Key
+  n, n1, ... = single-length signed
+  d, d1, ... = double-length signed
+  u, u1, ... = single-length unsigned
+  addr = address
+  c = ASCII character value
+
+Number Formatting — Signed and Single-length
+  Number to be printed     Precede <# by
+  double-length, unsigned  (nothing needed)
+  double-length, signed    TUCK DABS (to save the sign in the third stack position for ROT SIGN)
+  single-length, unsigned  0 (to give a dummy high-order part)
+  single-length, signed    DUP ABS 0 (to save the sign)
+
+Double-length Operators
+  D.R      ( d width -- ) Prints the signed double-length number, right-justified within the field width.
+  D+       ( d1 d2 -- d-sum ) Adds two double-length numbers.
+  D-       ( d1 d2 -- d-diff) Subtracts two double-length numbers (d1-d2).
+  DNEGATE  ( d -- -d) Changes the sign of a double-length number.
+  DMAX     ( d1 d2 -- d-max ) Returns the maximum of two double-length numbers (d1-d2).
+  DMIN     ( d1 d2 -- d-min ) Returns the minimum of two double-length numbers (d1-d2).
+  D=       ( d1 d2 -- f ) Returns true if d1 and d2 are equal.
+  D0=      ( d -- f ) Returns true if d is zero.
+  D<       ( d1 d2 -- f ) Returns true if d1 is less than d2.
+  DU<      ( ud1 ud2 -- f ) Returns true if ud1 is less than ud2. Both numbers are unsigned.
+
+Mixed-length Operators
+  M+      ( d n -- d-sum ) Adds a double-length number to a single-length number. Returns a double-length result.
+  SM/REM  ( d n1 -- n2 n3 ) Divide d by n1, giving the symmetric quotient n3 and the remainder n2. Input and output
+                            stack arguments are signed. An ambiguous condition exists if n1 is zero or if the quotient
+                            lies outside the range of a single-cell signed integer.
+  FM/MOD  ( d n1 -- n2 n3 ) Divide d by n1, giving the floored quotient n3 and the remainder n2. Input and output
+                            stack arguments are signed. An ambiguous condition exists if n1 is zero or if the quotient
+                            lies outside the range of a single-cell signed integer.
+  M*      ( n1 n2 -- d-prod ) Multiplies two single-length numbers. Returns a double-length result. All values are signed.
+  M*/     ( d n1 n2 -- d-result ) Multiplies a double-length number by a single-length number and divides the
+                                  triple-length result by a single-length number (d*n/n). Returns a double-length result.
+                                  All values are signed.
+
+The number's binary value depends on the number base at the time you compile the definition.
+
+Review of Terms
+
+Arithmetic left and right shift
+Logical left and right shift
+ASCII
+Binary
+Byte
+Cell
+Decimal
+Hexadecimal
+Literal
+Mask
+Number formatting
+Octal
+Sign bit high-order bit
+Two's complement
+Unsigned number
+Unsigned single-length number
+Word
+Integer division
+Floored division
+Symmetric division
