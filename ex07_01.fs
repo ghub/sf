@@ -1,0 +1,1 @@
+: N-MAX   ( -- ) 1 30 BEGIN SWAP 2* 1+ SWAP 1- DUP 0= UNTIL DROP . ;

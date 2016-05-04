@@ -201,7 +201,6 @@ Review of Terms
 
 Chapter 6 Throw It For a Loop
 
-
 DO ... LOOP      DO: ( limit index -- ) Sets up a finite loop, given the index range.
                  LOOP: ( -- )
 DO ... +LOOP     DO: ( limit index -- ) Like DO … LOOP except adds the value of n (instead of always one) to the index.
@@ -304,24 +303,23 @@ Mixed-length Operators
 The number's binary value depends on the number base at the time you compile the definition.
 
 Review of Terms
-
-Arithmetic left and right shift
-Logical left and right shift
-ASCII
-Binary
-Byte
-Cell
-Decimal
-Hexadecimal
-Literal
-Mask
-Number formatting
-Octal
-Sign bit high-order bit
-Two's complement
-Unsigned number
-Unsigned single-length number
-Word
-Integer division
-Floored division
-Symmetric division
+  Arithmetic left and right shift
+  Logical left and right shift
+  ASCII
+  Binary
+  Byte
+  Cell
+  Decimal
+  Hexadecimal
+  Literal
+  Mask
+  Number formatting
+  Octal
+  Sign bit high-order bit
+  Two's complement
+  Unsigned number
+  Unsigned single-length number
+  Word
+  Integer division
+  Floored division
+  Symmetric division
