@@ -323,3 +323,58 @@ Review of Terms
   Integer division
   Floored division
   Symmetric division
+
+Chapter 8 Variables, Constants, and Arrays
+
+In Forth, variables are appropriate for any value that is used inside a definition which may need to change
+at any time after the definition has already been compiled.
+
+BASE ( n -- ) A variable which contains the value of the number base being used by the system.
+
+CONSTANT xxx   ( n -- )      Creates a constant named xxx with the value n;
+         xxx:  ( -- n )      the word xxx returns n when executed.
+VARIABLE xxx   ( -- )        Creates a variable named xxx;
+         xxx:  ( -- addr )   the word xxx returns its address when executed.
+!              ( n addr -- ) Stores a single-length number into the address.
+@              ( addr -- n ) Replaces the address with its contents.
+?              ( addr -- )   Prints the contents of the address, followed by one space.
++!             ( n addr -- ) Adds a single-length number to the contents of the address.
+
+2CONSTANT xxx  ( d -- )      Creates a double-length constant named xxx with the value d;
+          xxx: ( -- d )      the word xxx returns d when executed.
+2VARIABLE xxx  ( -- )        Creates a double-length variable named xxx;
+          xxx: ( -- addr )   the word xxx returns its address when executed.
+2!             ( d addr -- ) Stores a double-length number into the address.
+2@             ( addr -- d ) Returns the double-length contents of the address.
+
+CREATE xxx     ( -- )        Creates a dictionary entry (head and code pointer only) named xxx;
+       xxx:    ( -- addr )   the word xxx returns its address when executed.
+,              ( n -- )      Compiles n into the next available cell in the dictionary.
+ALLOT          ( n -- )      Adds n bytes to the body of the most recently defined word.
+
+ERASE ( addr n -- )   Stores zeroes into n bytes of memory, beginning at the address.
+FILL  ( addr n b -- ) Fills n bytes of memory, beginning at the address, with value b.
+C!    ( b addr -- )   Stores an 8-bit value into the address.
+C@    ( addr -- b )   Fetches an 8-bit value from the address.
+C,    ( b -- )        Compiles b into the next available byte in the dictionary.
+DUMP  ( addr u -- )   Displays u bytes of memory, starting at the address.
+
+Key
+  n, n1, ... single-length signed
+  d, d1, ... double-length signed
+  u, u1, ... single-length unsigned
+  ud, ud1, ... double-length unsigned
+  addr address
+  c ASCII character value
+  b 8-bit byte
+  f Boolean flag
+
+Review of Terms
+  Array
+  Constant
+  Factoring
+  Fetch
+  Initialize
+  Offset
+  Store
+  Variable
