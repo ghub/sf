@@ -1,0 +1,8 @@
+require ex08_1.fs
+
+VARIABLE FROZEN-PIES
+0 FROZEN-PIES !
+
+: FREEZE-PIES   ( -- )
+    PIES @ FROZEN-PIES +!
+    0 PIES ! ;
