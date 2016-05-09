@@ -378,3 +378,58 @@ Review of Terms
   Offset
   Store
   Variable
+
+Chapter 9 Under the Hood
+
+' xxx   ( -- addr )           Attempts to find the execution token of xxx
+                              (the word that follows in the input stream) in the dictionary.
+[']     compile time ( -- )   Used only in a colon definition, compiles the execution token
+        run time ( -- addr )  of the next word in the definition as a literal.'
+
+Definition
+  name field
+  link field
+  code pointer field
+  data field
+
+EXECUTE ( xt -- ) Executes the dictionary entry whose execution token is on the stack.
+EXIT    ( -- ) When compiled within a colon definition, terminates execution at that point.
+QUIT    ( -- ) Clears all stacks and returns control to the terminal. No message is given.
+
+HERE    ( -- addr ) Returns the next available dictionary location.
+PAD     ( -- addr ) Returns the beginning address of a scratchpad area used to hold character strings
+                    for intermediate processing.
+SP@     ( -- addr ) User variable. Return the address of the top of the stack before SP@ is executed.
+SP0     ( -- addr ) User variable. Contains the address of the bottom of the parameter stack.
+
+TIB     Contains the address of the start of the terminal input buffer.
+#TIB    Contains the size of the terminal input buffer.
+SCR     A pointer to the current block number (set by LIST).
+BASE    Number conversion base.
+CP      Dictionary pointer. Pointer to the next available byte.
+>IN     A pointer to the current position in the input stream.
+BLK     If non-zero, a pointer to the block being interpreted by LOAD.
+        A zero indicates interpretation from the terminal (via the input message buffer).
+
+Variables
+  System variables contain values used by the entire Forth system.
+  User variables contain values that are unique for each task.
+  Regular variables can be accessible either system-wide or within a single task only.
+
+Review of Terms
+  Address interpreter
+  Body
+  Cfa
+  Code pointer field
+  Defining word
+  Head
+  Input message buffer
+  Link field
+  Name field
+  Pad
+  Data field
+  Run-time code
+  System variable
+  Task
+  User variable
+  Vectored execution
