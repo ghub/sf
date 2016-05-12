@@ -1,0 +1,23 @@
+require ex06_2.fs
+
+CREATE 'THINGS 5 CELLS ALLOT
+
+: 'THING   ( index -- addr )
+    CELLS 'THINGS + ;
+
+: REMEMBER   ( index -- )
+    ' SWAP 'THING ! ;
+
+: GREET   ." Hello, I speak Forth." ;
+: NUMBERS 11 1 DO I . LOOP ;
+: RECT    10 5 BOX ;
+: NOTHING ;
+
+0 REMEMBER GREET
+1 REMEMBER NUMBERS
+2 REMEMBER RECT
+3 REMEMBER NOTHING
+4 REMEMBER NOTHING
+
+: DO-SOMETHING   ( n -- )
+    1- 'THING @ EXECUTE ;
