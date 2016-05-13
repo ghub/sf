@@ -1,4 +1,4 @@
-require ex06_1.fs
+require ex06_1.ft
 
 : ROW    ( #spaces -- ) SPACES 10 STARS ;
 : /STARS   ( height -- ) BEGIN CR 1- DUP DUP ROW 0= UNTIL DROP ;

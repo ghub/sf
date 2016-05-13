@@ -1,4 +1,4 @@
-require ex01_1.fs
+require ex01_1.ft
 
 : GIVER   ." Stephanie" ;
 : THANKS   ." Dear " GIVER ." , thanks for the " GIFT ." . " ;

@@ -1,4 +1,4 @@
-require ex06_2.fs
+require ex06_2.ft
 
 CREATE 'THINGS 5 CELLS ALLOT
 

@@ -1,4 +1,4 @@
-require ex06_1.fs
+require ex06_1.ft
 
 : MOVE  ( n -- ) 9 SWAP - SPACES ;
 : DRAW  ( n -- ) 2* 1+ STARS ;

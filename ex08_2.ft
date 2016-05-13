@@ -1,4 +1,4 @@
-require ex08_1.fs
+require ex08_1.ft
 
 VARIABLE FROZEN-PIES
 0 FROZEN-PIES !

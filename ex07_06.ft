@@ -1,5 +1,5 @@
-require ex07_04.fs
-require ex07_05.fs
+require ex07_04.ft
+require ex07_05.ft
 
   0.0 F>C .DEG CR
 212.0 F>C .DEG CR

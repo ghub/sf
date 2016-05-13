@@ -1,4 +1,4 @@
-require ex04_6.fs
+require ex04_6.ft
 
 : TRAP   ( n lo hi -- n or empty )
     ROT DUP 2SWAP 2DUP = SWAP 2SWAP ROT 1+ WITHIN 0=

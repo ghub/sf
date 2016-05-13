@@ -1,5 +1,5 @@
-require ex06_1.fs
-require ex08_5.fs
+require ex06_1.ft
+require ex08_5.ft
 
 : []   ( array index -- addr )
     CELLS + ;
